@@ -2,8 +2,8 @@ BDD подход при написании тестов на Kotlin. `Junit5` / 
 ---
 
 ## BDD и BDT презентация
-[BDD.pptx](pptx/BDD.pptx)
-[Требования](pptx/requirements.md)
+- [BDD.pptx](pptx/BDD.pptx)
+- [Требования](pptx/requirements.md)
 
 ## Spring Boot
 ```groovy
