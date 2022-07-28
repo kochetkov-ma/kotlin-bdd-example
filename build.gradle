@@ -1,0 +1,54 @@
+plugins {
+    id 'idea'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.7.10'
+    id 'org.springframework.boot' version '2.7.2'
+    /* https://docs.spring.io/spring-boot/docs/current/reference/html/dependency-versions.html */
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    id 'com.github.ben-manes.versions' version '0.42.0'
+}
+
+compileKotlin {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+wrapper {
+    gradleVersion = '7.5'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+
+    // Sprint Boot Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.rest-assured:rest-assured'
+
+    // JUnit5
+    testImplementation('org.junit.jupiter:junit-jupiter')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+    testImplementation('org.junit.platform:junit-platform-suite')
+
+    // Cucumber
+    testImplementation 'io.cucumber:cucumber-java:7.4.1'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.4.1'
+    testImplementation 'io.cucumber:cucumber-spring:7.4.1'
+
+    // Kotest
+    testImplementation 'io.kotest:kotest-runner-junit5:5.3.2'
+    testImplementation ('io.kotest.extensions:kotest-extensions-spring:1.1.1') {
+        exclude group: 'io.kotest'
+    }
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties['cucumber.junit-platform.naming-strategy'] = 'long'
+}
