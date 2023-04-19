@@ -26,6 +26,7 @@ public class ValidationControllerJunitBddTest {
     @Test
     @DisplayName("Scenario: Отсутствует текст в исходном запросе [@REQ=1]")
     void testSampleGetEndpointTextNull() {
+
         step("Подготовка", () -> {
             step("Given настроен стенд и готов принимать запросы", () -> {
                 assertThat(localServerPort).isNotZero();
