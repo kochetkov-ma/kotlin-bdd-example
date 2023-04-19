@@ -1,5 +1,6 @@
 package org.brewcode.bdd.unit;
 
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -14,6 +15,10 @@ import org.springframework.http.MediaType;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
+// Allure //
+@Epic("API")
+@Feature("Валидация")
+//
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ValidationControllerJunitBddTest {
 
@@ -23,6 +28,11 @@ public class ValidationControllerJunitBddTest {
     private RequestSpecification body;
     private Response post;
 
+    // Allure //
+    @Link("ссылка @REQ=1")
+    @TmsLink("TEST-001")
+    @Issue("JK-004")
+    //
     @Test
     @DisplayName("Scenario: Отсутствует текст в исходном запросе [@REQ=1]")
     void testSampleGetEndpointTextNull() {
