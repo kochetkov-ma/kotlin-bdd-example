@@ -53,3 +53,11 @@ dependencies {
 }
 ```
 [Kotest](src/test/kotlin/org/brewcode/bdd/kotest/ValidationControllerBddKotestTest.kt)
+
+## `Junit5` + `Allure` и Spring Boot Test 
+```groovy
+dependencies {
+    implementation 'io.qameta.allure:allure-java-commons:2.21.0'
+}
+```
+[JUnit5 BDD](src/test/java/org/brewcode/bdd/unit/ValidationControllerJunitBddTest.java)

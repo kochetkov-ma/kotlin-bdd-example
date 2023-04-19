@@ -26,6 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation 'io.qameta.allure:allure-java-commons:2.21.0'
 
     // Sprint Boot Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
