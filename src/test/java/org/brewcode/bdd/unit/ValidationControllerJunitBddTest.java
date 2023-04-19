@@ -26,13 +26,10 @@ public class ValidationControllerJunitBddTest {
     @Test
     @DisplayName("Scenario: Отсутствует текст в исходном запросе [@REQ=1]")
     void testSampleGetEndpointTextNull() {
-
         step("Подготовка", () -> {
-
             step("Given настроен стенд и готов принимать запросы", () -> {
                 assertThat(localServerPort).isNotZero();
             });
-
             step("Given настроен стенд и готов принимать запросы", () -> {
                 body = RestAssured
                         .with()
@@ -42,11 +39,9 @@ public class ValidationControllerJunitBddTest {
                         .accept(MediaType.APPLICATION_JSON_VALUE)
                         .body(new RequestDto(null));
             });
-
         });
 
         step("Действие", () -> {
-
             step("When отправлен запрос", () -> {
                 post = body.post("http://localhost:%s/validation".formatted(localServerPort));
             });
@@ -54,7 +49,6 @@ public class ValidationControllerJunitBddTest {
 
 
         step("Результат", () -> {
-
             step("Then получен ответ с кодом ошибки 1 и сообщением 'Null text field'", () -> {
                 post
                         .then()
